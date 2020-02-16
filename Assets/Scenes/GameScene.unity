@@ -163,8 +163,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce7da216120d4d43bfeb55dc44283d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roadBlock: {fileID: 1929604445014762135, guid: 893f89f88b486bc44a33ca96295c4918,
-    type: 3}
+  roadBlocks:
+  - {fileID: 1929604445014762135, guid: ce85faf626d92da45a2ee1b08eff0ad2, type: 3}
+  - {fileID: 1929604445014762135, guid: f9cf78e265fb3744cb4caa8f3ed01839, type: 3}
+  - {fileID: 1929604445014762135, guid: 893f89f88b486bc44a33ca96295c4918, type: 3}
+  - {fileID: 1929604445014762135, guid: 1e501bfd2c2bac84e986cf97273502b9, type: 3}
+  - {fileID: 1929604445014762135, guid: 6246810102a0c834d9ad031563e2a00e, type: 3}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
