@@ -26,8 +26,20 @@ public class Distance : MonoBehaviour
         _lastPlayerPosition = currentPlayerPosition;
         if (_distanceTravelled >= 1f)
         {
-            // Format the distance to only get the "Integer" part of it.
-            _distanceText.text = _distanceTravelled.ToString("F0") + " m";
+            UpdateDistanceText(_distanceTravelled);
         }
+    }
+
+    private void UpdateDistanceText(float distance)
+    {
+        // Format the distance to only get the "Integer" part of it.
+        _distanceText.text = distance.ToString("F0") + " m";
+    }
+
+    public void ResetDistanceTravelled()
+    {
+        _lastPlayerPosition = player.transform.position;
+        _distanceTravelled = 0;
+       UpdateDistanceText(_distanceTravelled);
     }
 }

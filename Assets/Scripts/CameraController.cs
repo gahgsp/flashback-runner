@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
@@ -6,7 +7,17 @@ public class CameraController : MonoBehaviour
     [SerializeField] float cameraTranslationSpeed = 5f;
     [SerializeField] float cameraRotationSpeed = 100f;
     [SerializeField] GameObject carFrontLights;
-    
+
+    private Vector3 _startingPosition;
+    private Quaternion _startingRotation;
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+        _startingPosition = transform.position;
+        _startingRotation = transform.rotation;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -52,8 +63,10 @@ public class CameraController : MonoBehaviour
     private void ResetCamera()
     {
         if (Input.GetKeyDown(KeyCode.R))
-        { 
-            transform.rotation = new Quaternion(0f, 0f, 0f, 0f);   
+        {
+            transform.position = _startingPosition;
+            transform.rotation = _startingRotation;
+            FindObjectOfType<Distance>().ResetDistanceTravelled();
         }
     }
 
