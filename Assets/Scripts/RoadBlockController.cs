@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/// <summary>
+/// Simple representation of a road block.
+/// </summary>
 public class RoadBlockController : MonoBehaviour
 {
 
@@ -14,18 +17,6 @@ public class RoadBlockController : MonoBehaviour
     [SerializeField] Direction entryDirection;
     [SerializeField] Direction exitDirection;
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public Direction GetEntryDirection()
     {
         return entryDirection;

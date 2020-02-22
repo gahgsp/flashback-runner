@@ -8,7 +8,7 @@ public class Distance : MonoBehaviour
 
     private TextMeshProUGUI _distanceText;
     
-    private float _distanceTravelled = 0;
+    private float _distanceTravelled;
     private Vector3 _lastPlayerPosition;
     
     // Start is called before the first frame update

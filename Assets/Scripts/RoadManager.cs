@@ -1,15 +1,20 @@
 ﻿using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// This class is responsible for the creation of the infinite road using the available road blocks.
+/// The road is procedurally created and new road blocks can be added.
+/// </summary>
 public class RoadManager : MonoBehaviour
 {
+    // All available road blocks.
     [SerializeField] GameObject[] roadBlocks;
 
     private GameObject _lastSpawnedBlock;
 
     private void Awake()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)
         {
             SpawnRoadBlock();
         }
@@ -26,18 +31,10 @@ public class RoadManager : MonoBehaviour
     {
         TriggerEnterEvent.OnEnterEvent -= SpawnRoadBlock;
     }
-
-    // Start is called before the first frame update
-    private void Start()
-    {
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-    }
-
-    // FIXME: Redo this function
+    
+    /// <summary>
+    /// Spawn a new road block, using the last spawned block as reference to choose the best next block.
+    /// </summary>
     private void SpawnRoadBlock()
     {
         if (_lastSpawnedBlock != null)
@@ -57,6 +54,10 @@ public class RoadManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Contains the logic to retrieve from the available road blocks the best option based on the last
+    /// road block that was spawned.
+    /// </summary>
     private GameObject GetBestRoadBlock()
     {
         var lastRoadBlockExitDirection = _lastSpawnedBlock.GetComponent<RoadBlockController>().GetExitDirection();
@@ -88,6 +89,7 @@ public class RoadManager : MonoBehaviour
         var bestRoadBlockIndex = Random.Range(0, possibleRoadBlocks.Count);
         var bestRoadBlock = possibleRoadBlocks[bestRoadBlockIndex];
         bestRoadBlock.transform.position = lastRoadBlockPosition;
+        
         return bestRoadBlock;
     }
 }
