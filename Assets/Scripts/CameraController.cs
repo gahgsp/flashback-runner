@@ -13,6 +13,6 @@ public class CameraController : MonoBehaviour
     void Update()
     {
         transform.Rotate(0f, Input.GetAxisRaw("Horizontal") * Time.deltaTime * 100f, 0f);
-        transform.Translate(0f, 0f, Input.GetAxisRaw("Vertical") * Time.deltaTime * 5f);
+        transform.Translate(0f, 0f, Input.GetAxisRaw("Vertical") * Time.deltaTime * 3f);
     }
 }
